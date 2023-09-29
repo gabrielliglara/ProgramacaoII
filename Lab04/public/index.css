@@ -1,0 +1,56 @@
+h1 {
+    color: #006400;
+    margin: 10px;
+}
+
+h2 {
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+h3{
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cursos{
+    font-weight: bold;
+    color: #006400;
+}
+
+p{
+    color:black;
+    width: 500px;
+    margin: 10px;
+}
+
+body{
+    margin: 25px 100px 25px 100px;
+}
+
+.container-md {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+table{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.alert-success{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.accordion-item {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#btnFollow{
+    background-color: #006400;
+    color: aliceblue;
+}
