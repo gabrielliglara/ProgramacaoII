@@ -1,0 +1,48 @@
+create database agenda;
+\c agenda
+
+create table cursos(
+id integer not null,
+nome varchar(30) not null,
+descricao varchar(500) not null,
+constraint pk_cursos primary key (id),
+);
+
+create table ccr(
+id integer not null, 
+id_curso integer not null,
+nome varchar(30) not null,
+semestre integer not null,
+constraint pk_ccr primary key(id),
+constraint fk_ccr_cursos foreign key (id_curso) references cursos(id)
+);
+
+create table horarios(
+id integer not null,
+id_ccr integer not null, 
+id_curso integer not null,
+hr varchar(50) not null,
+constraint pk_horarios primary key (id),
+constraint fk_horarios_ccr_id foreign key (id_ccr) references ccr(id),
+constraint fk_horarios_ccr_curso foreign key (id_curso) references ccr(id_curso)
+);
+
+insert into cursos (id, nome, descricao) values 
+(1, 'Ciência da computação', 'O Curso de Ciência da Computação da UFFS é um curso que pretende, através de bases sólidas da área de computação, formar cientistas capazes de terem um papel importante em áreas da tecnologia da informação (TI), tanto na indústria quanto na academia'), 
+(2, 'Medicina', 'Busca promover a formação médica em que a humanização seja aliada ao desenvolvimento científico e tecnológico e o objeto da prática seja a necessidade das pessoas e das comunidades, onde os médicos sejam capazes de atuar em todos os níveis de atenção integral à saúde'), 
+(3, 'Enfermagem', 'O Curso de Graduação em Enfermagem da UFFS propicia condições para o desenvolvimento de competências e habilidades gerais e específicas que permitam ao educando atuar nos diferentes cenários da prática profissional do enfermeiro, considerando os princípios e as diretrizes das políticas públicas de educação, saúde e meio ambiente.');
+
+insert into ccr (id, id_curso, semestre, nome) values
+(1, 1, 1, 'Algoritmos e programação'),
+(2, 1, 1, 'Introdução à filosofia'),
+(3, 1, 2, 'Estruturas de dados'),
+(4, 1, 2, 'Produção textual'),
+(5, 2, 1, 'Anatomia'),
+(6, 2, 1, 'Histologia'),
+(7, 2, 2, 'Bioquímica básica'),
+(8, 2, 2, 'Citologia'),
+(9, 3, 3, 'Curativos'),
+(10, 3, 1, 'Vacinas'),
+(11, 3, 2, 'Anatomia'),
+(12, 3, 2, 'Geriatria');
+
